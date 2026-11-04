@@ -1,9 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>TENNIS JASOOS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>𝗩𝗜𝗞𝗥𝗔𝗠 𝗥𝗔𝗧𝗛𝗢𝗥𝗘‼️</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+
+            background:
+                radial-gradient(circle at 50% 20%, rgba(245, 166, 35, 0.10), transparent 35%),
+                radial-gradient(circle at 10% 90%, rgba(232, 195, 42, 0.06), transparent 30%),
+                #1c1508;
+
+            color: #fff;
+            overflow-x: hidden;
+
+            padding: 50px 10px;
+        }
+
+        /* =========================
+           FLOATING PARTICLES
+        ========================= */
+
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.45;
+            pointer-events: none;
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(-1000px);
+                opacity: 0;
+            }
+        }
+
+        body > div {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .card {
+            width: 360px;
+            max-width: 96vw;
+
+            padding: 38px 28px 28px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.09),
+                    rgba(255, 255, 255, 0.035)
+                );
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            text-align: center;
+
+            box-shadow:
+                0 0 60px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 220px;
+            height: 220px;
+
+            background: rgba(245, 166, 35, 0.08);
+            filter: blur(60px);
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        /* =========================
+           CRICKET BADGE
+        ========================= */
+
+        .cricket-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            background: rgba(60, 100, 40, 0.28);
+
+            border: 1px solid rgba(126, 200, 80, 0.35);
+
+            border-radius: 50px;
+
+            padding: 7px 15px;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            color: #fff;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 20px;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 0 15px rgba(80, 140, 60, 0.20);
+        }
+
+        .cricket-badge::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+
+            background: #7ec850;
+
+            border-radius: 50%;
+
+            box-shadow: 0 0 10px #7ec850;
+
+            animation: blink 1.4s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.25;
+            }
+        }
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        .profile-wrap {
+            position: relative;
+
+            width: 130px;
+            height: 130px;
+
+            margin: 0 auto 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-spinner {
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 50%;
+
+            background:
+                conic-gradient(
+                    #f5a623 0deg,
+                    #e8c32a 120deg,
+                    #fff 240deg,
+                    #f5a62399 360deg
+                );
+
+            filter: blur(1.5px);
+
+            animation: spinBorder 2.2s linear infinite;
+        }
+
+        .profile {
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            border: 5px solid #f5a623;
+
+            object-fit: cover;
+
+            position: relative;
+            z-index: 2;
+
+            background: #1c1508;
+
+            box-shadow:
+                0 0 20px rgba(245, 166, 35, 0.30);
+        }
+
+        @keyframes spinBorder {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        h2 {
+            margin-bottom: 12px;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.3px;
+
+            text-shadow:
+                0 0 12px rgba(245, 166, 35, 0.18);
+        }
+
+        /* =========================
+           DESCRIPTION
+        ========================= */
+
+        .text {
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            color: rgba(255, 255, 255, 0.88);
+
+            margin-bottom: 25px;
+        }
+
+        .text-main {
+            margin-bottom: 12px;
+        }
+
+        .expertise {
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color: #f5c45c;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+        .sub-text {
+            font-size: 11px;
+
+            color: rgba(255, 255, 255, 0.55);
+
+            margin-top: 3px;
+        }
+
+        /* =========================
+           TELEGRAM BUTTON
+        ========================= */
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 11px;
+
+            width: 100%;
+
+            padding: 17px 25px;
+
+            border-radius: 60px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5a623,
+                    #e8c32a
+                );
+
+            color: #1c1508;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            font-size: 17px;
+
+            position: relative;
+
+            box-shadow:
+                0 0 15px rgba(245, 166, 35, 0.45);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .btn i {
+            font-size: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+
+            box-shadow:
+                0 0 25px rgba(245, 166, 35, 0.70);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* =========================
+           TIMER
+        ========================= */
+
+        .timer {
+            margin-top: 16px;
+
+            font-size: 11px;
+
+            color: rgba(255, 255, 255, 0.55);
+
+            letter-spacing: 0.4px;
+        }
+
+        .timer span {
+            color: #f5a623;
+
+            font-size: 15px;
+
+            font-weight: 900;
+
+            margin: 0 2px;
+        }
+
+        /* =========================
+           PREMIUM ADS CREDIT
+        ========================= */
+
+        .ads-credit {
+            margin: 20px auto 0;
+
+            width: fit-content;
+            max-width: 100%;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            padding: 9px 15px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(245, 166, 35, 0.10),
+                    rgba(255, 255, 255, 0.035)
+                );
+
+            border: 1px solid rgba(245, 166, 35, 0.25);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.18),
+                inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+            font-size: 10px;
+
+            letter-spacing: 0.25px;
+
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .ads-label {
+            opacity: 0.65;
+        }
+
+        .ads-dot {
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #f5a623;
+
+            box-shadow:
+                0 0 8px rgba(245, 166, 35, 0.9);
+        }
+
+        .ads-credit a {
+            color: #f5c45c;
+
+            text-decoration: none;
+
+            font-weight: 800;
+
+            letter-spacing: 0.2px;
+
+            transition: all 0.3s ease;
+        }
+
+        .ads-credit a:hover {
+            color: #fff;
+
+            text-shadow:
+                0 0 10px rgba(245, 166, 35, 0.8);
+        }
+
+        .verified {
+            color: #7ec850;
+
+            font-size: 10px;
+
+            text-shadow:
+                0 0 8px rgba(126, 200, 80, 0.7);
+        }
+
+        /* =========================
+           DISCLAIMER
+        ========================= */
+
+        .card-disclaimer {
+            margin-top: 18px;
+
+            padding-top: 15px;
+
+            border-top:
+                1px dashed rgba(255, 255, 255, 0.14);
+
+            font-size: 10px;
+
+            color: rgba(255, 255, 255, 0.45);
+
+            line-height: 1.6;
+
+            text-align: center;
+        }
+
+        .card-disclaimer strong {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding-top: 35px;
+                padding-bottom: 35px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 370px;
+
+                padding: 30px 17px 23px;
+
+                border-radius: 21px;
+            }
+
+            .profile-wrap {
+                width: 105px;
+                height: 105px;
+            }
+
+            .profile {
+                width: 96px;
+                height: 96px;
+
+                border-width: 4px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .text {
+                font-size: 13px;
+            }
+
+            .btn {
+                padding: 16px 20px;
+                font-size: 16px;
+            }
+
+            .ads-credit {
+                font-size: 9px;
+                padding: 8px 12px;
+            }
+
+            .card-disclaimer {
+                font-size: 9.5px;
+            }
+        }
+    </style>
 
 <!-- Meta Pixel Code -->
 <script>
@@ -15,202 +564,168 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2049022265664397');
+fbq('init', '1828952544802137');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2049022265664397&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1828952544802137&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-
-<style>
-  :root {
-    --white: #ffffff;
-    --accent: #ffd700;
-    --btn-bg: #0b1b4a;
-    --btn-border: #ffffff;
-  }
-
-  html,body{
-    height:100%;
-    margin:0;
-    padding:0;
-    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
-  }
-  body{
-    background: url('https://raw.githubusercontent.com/prediction1134/Dev/37b42401ff89058007e61a20b19679bad981b600/devv.jpeg') center/cover no-repeat fixed;
-    position:relative;
-    color:var(--white);
-    -webkit-font-smoothing:antialiased;
-  }
-
-  .bg-overlay{
-    position:fixed; inset:0;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(4px);
-    z-index:0;
-  }
-
-  .wrap{
-    position:relative;
-    z-index:2;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:28px;
-    box-sizing:border-box;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 520px;
-    text-align:center;
-    padding: 18px 20px;
-    color: #fff;
-  }
-
-  .title {
-    font-size: 36px;
-    font-weight: 800;
-    margin: 6px 0;
-    text-shadow: 0 6px 18px rgba(0,0,0,0.6);
-  }
-
-  .subtitle {
-    font-size: 16px;
-    color: rgba(255,255,255,0.9);
-    margin-bottom:18px;
-  }
-
-  /* circular profile */
-  .profile {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 18px auto 12px;
-    border: 4px solid rgba(255,255,255,0.2);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    background: center/cover no-repeat;
-  }
-
-  .joining-line {
-    margin-top: 10px;
-    color: rgba(255,255,255,0.85);
-    font-size: 16px;
-  }
-  .count {
-    font-size: 52px;
-    font-weight: 800;
-    color: var(--accent);
-    margin-top: 6px;
-    text-shadow: 0 6px 20px rgba(0,0,0,0.6);
-  }
-
-  .userline {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-  }
-
-  .request {
-    margin-top: 8px;
-    color: rgba(255,255,255,0.85);
-    font-size: 14px;
-  }
-
-  /* animated button */
-  .btn-join {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin: 24px auto 10px;
-    background: var(--btn-bg);
-    color: var(--white);
-    padding: 16px 28px;
-    border-radius: 44px;
-    font-size: 20px;
-    font-weight: 800;
-    text-decoration: none;
-    border: 3px solid var(--btn-border);
-    box-shadow: 0 10px 30px rgba(3,10,40,0.6);
-    animation: popup 2s infinite ease-in-out, pulseColor 3s infinite alternate;
-  }
-
-  @keyframes popup {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-  }
-
-  @keyframes pulseColor {
-    0% { background-color: #0b1b4a; }
-    50% { background-color: #152b7b; }
-    100% { background-color: #0b1b4a; }
-  }
-
-  .btn-join:hover {
-    transform: scale(1.1);
-    box-shadow: 0 14px 40px rgba(3,10,40,0.9);
-  }
-
-  .footer-credit {
-    margin-top: 18px;
-    color: rgba(255,215,0,0.95);
-    font-weight:700;
-    font-size: 14px;
-  }
-  .footer-credit a { color: rgba(255,215,0,0.95); text-decoration:none; }
-
-  @media (max-width:480px){
-    .title { font-size: 28px; }
-    .profile { width:110px; height:110px; }
-    .count { font-size:42px; }
-    .btn-join { font-size:18px; padding:14px 22px; border-radius:36px; }
-  }
-</style>
 </head>
+
 <body>
 
-<div class="bg-overlay"></div>
+    <!-- Floating Particles -->
+    <script>
+        for (let i = 0; i < 70; i++) {
 
-<div class="wrap">
-  <div class="card">
-    <div class="title">TENNIS JASOOS</div>
-    <div class="subtitle">India's No.1 Cricket Tipper</div>
+            const p = document.createElement("div");
 
-    <div id="profile" class="profile" style="background-image: url('https://raw.githubusercontent.com/prediction1134/Dev/37b42401ff89058007e61a20b19679bad981b600/devv.jpeg');"></div>
+            p.className = "particle";
 
-    <div class="joining-line">FREE JOINING ENDS IN...</div>
-    <div class="count" id="countNum">43</div>
+            p.style.left = Math.random() * 100 + "%";
+            p.style.top = Math.random() * 100 + "%";
 
-    <div class="userline">Dev</div>
-    <div class="request">Request access — approvals are quick ⬇</div>
+            p.style.animationDuration =
+                5 + Math.random() * 10 + "s";
 
-    <a id="joinBtn" class="btn-join" href="https://t.me/+D_Y_jCerk0tlYTJl" target="_blank">
-      JOIN NOW FOR FREE CHANNEL
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M21 4L3 10.5L10 13.5L13 21L15 13.5L21 4Z" fill="#fff"/>
-      </svg>
-    </a>
+            p.style.animationDelay =
+                Math.random() * 5 + "s";
 
-    <div class="footer-credit"><a href="https://t.me/Shubhamads" target="_blank">Shubham Ads Agency</a></div>
-  </div>
-</div>
+            document.body.appendChild(p);
+        }
+    </script>
 
-<script>
-  (function(){
-    let n = 43;
-    const el = document.getElementById('countNum');
-    setInterval(()=>{
-      n--;
-      if(n <= 0) n = 43;
-      el.textContent = n;
-    },1000);
-  })();
-</script>
+    <div>
+
+        <div class="card">
+
+            <!-- Cricket Badge -->
+            <div class="cricket-badge">
+                🏏 Cricket Updates &amp; Insights
+            </div>
+
+            <!-- Profile -->
+            <div class="profile-wrap">
+
+                <span class="profile-spinner"></span>
+
+                <img
+                    src="photo_2026-11-04_09-16-18.jpg
+"
+                    class="profile"
+                    alt="ANNA REDDY">
+            </div>
+
+            <!-- Heading -->
+            <h2>B𝗩𝗜𝗞𝗥𝗔𝗠 𝗥𝗔𝗧𝗛𝗢𝗥𝗘‼️</h2>
+
+            <!-- Description -->
+            <div class="text">
+
+                <p class="text-main">
+                    Honest analysis • Match insights • Community driven
+                </p>
+
+                <p class="expertise">
+                    ✦ 12+ Years Expertise ✦
+                </p>
+
+                <p class="sub-text">
+                    Stay informed with transparent cricket analysis
+                </p>
+
+            </div>
+
+            <!-- Telegram CTA -->
+            <a
+                class="btn"
+                href="https://t.me/+kPXGe_X7_jo4NmVl"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <i class="fab fa-telegram"></i>
+
+                Subscribe Free
+
+            </a>
+
+            <!-- Countdown -->
+            <div class="timer">
+                Redirecting in
+                <span id="count">60</span>
+                seconds...
+            </div>
+
+            <!-- Premium Ads Agency Credit -->
+            <div class="ads-credit">
+
+                <span class="ads-label">
+                    Ads Managed by
+                </span>
+
+                <span class="ads-dot"></span>
+
+                <a
+                    href="https://t.me/Shubhamads"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Shubham Ads Agency
+
+                </a>
+
+                <span class="verified">
+                    ✦
+                </span>
+
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="card-disclaimer">
+
+                <strong>Disclaimer:</strong>
+                Cricket updates &amp; analysis only.
+                No betting or gambling promoted.
+                Verify independently.
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Countdown Script -->
+    <script>
+
+        let time = 60;
+
+        const counter =
+            document.getElementById("count");
+
+        const redirectUrl =
+            "https://t.me/+kPXGe_X7_jo4NmVl";
+
+        const countdown =
+            setInterval(() => {
+
+                time--;
+
+                counter.innerText =
+                    String(time).padStart(2, "0");
+
+                if (time <= 0) {
+
+                    clearInterval(countdown);
+
+                    window.location.href =
+                        redirectUrl;
+                }
+
+            }, 1000);
+
+    </script>
 
 </body>
-</html> 
+
+</html>
